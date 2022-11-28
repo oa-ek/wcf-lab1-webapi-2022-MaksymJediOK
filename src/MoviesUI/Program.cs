@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MoviesCore;
 using MoviesRepository;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,14 +29,9 @@ builder.Services.AddControllersWithViews();
 
 //Add all repositories
 builder.Services.AddTransient<UsersRepository>();
-builder.Services.AddSwaggerGen(options =>
-{
-    options.SwaggerDoc("V1", new Microsoft.OpenApi.Models.OpenApiInfo
-    {
-        Version = "v1",
-
-    });
-});
+builder.Services.AddSwaggerGen(options => { });
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -44,6 +40,10 @@ if (app.Environment.IsDevelopment())
     app.UseMigrationsEndPoint();
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("../swagger/v1/swagger.json", "My API V1");
+    });
 }
 else
 {
