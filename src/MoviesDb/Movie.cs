@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace MoviesCore
 {
@@ -20,6 +21,7 @@ namespace MoviesCore
         public virtual ICollection<Genre>? Genres { get; set; } = new List<Genre>();
         public virtual ICollection<Director>? Directors { get; set; } = new List<Director>();
         public virtual ICollection<Actor>? Actors { get; set; } = new List<Actor>();
+        [JsonIgnore]
         public virtual ICollection<User>? Users { get; set; } = new List<User>();
 
         public override string ToString()
