@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesCore", "MoviesDb\Movi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesUI", "MoviesUI\MoviesUI.csproj", "{5D180BB4-857D-44D2-9804-97D5657142CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesRepository", "MoviesRepository\MoviesRepository.csproj", "{12440F34-8D71-4323-ACE8-8960F653388C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesRepository", "MoviesRepository\MoviesRepository.csproj", "{12440F34-8D71-4323-ACE8-8960F653388C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9DA31E86-1F25-4EAC-8B01-091E7A8CDCB1}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

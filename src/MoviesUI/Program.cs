@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MoviesCore;
 using MoviesRepository;
+using System.Reflection;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,8 +29,18 @@ builder.Services.AddDefaultIdentity<User>(options =>
 builder.Services.AddControllersWithViews();
 
 //Add all repositories
+string xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+string xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
 builder.Services.AddTransient<UsersRepository>();
-builder.Services.AddSwaggerGen(options => { });
+builder.Services.AddSwaggerGen(options => {
+    options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Version = "v1",
+        Title = "Movies API",
+        Description = "Test API"
+    });
+    options.IncludeXmlComments(xmlPath);
+});
 builder.Services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 var app = builder.Build();
@@ -39,10 +50,9 @@ if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
     app.UseSwagger();
-    app.UseSwaggerUI();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("../swagger/v1/swagger.json", "My API V1");
+        c.SwaggerEndpoint("../swagger/v1/swagger.json", "My API V1"); 
     });
 }
 else

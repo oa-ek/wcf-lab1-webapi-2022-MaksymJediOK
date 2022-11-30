@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MoviesCore;
+using AutoMapper;
+using MoviesUI.Dtos;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -16,42 +18,40 @@ namespace MoviesUI.Controllers.api
         {
             this.dbContext = dbContext;
         }
-        // GET: api/<GenresAPIController>
+        /// <summary>
+        /// Get all available genres from db
+        /// </summary>
+        /// <returns>List of genres</returns>
         [HttpGet]
-        public async Task<ActionResult<List<Genre>>> Get()
+        public async Task<ActionResult<List<GenreReadDto>>> Get()
         {
-
-            var genres = await dbContext.Genres.Include(x => x.Movies).ToListAsync();
-
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Genre, GenreReadDto>());
+            var mapper = new Mapper(config);
+            var genres = mapper.Map<List<GenreReadDto>>(await dbContext.Genres.ToListAsync());
             return genres;
         }
 
-        // GET api/<GenresAPIController>/5
+        /// <summary>
+        /// Get movies that correspond to a certain genre
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Movies List</returns>
         [HttpGet("{id}")]
-        public async Task<List<Movie>> Get (int id)
+        public async Task<List<Movie>> Get(int id)
         {
             var query = from x in dbContext.Movies
                         where x.Genres.Any(x => x.Id == id)
                         select x;
-            return await query.Include(x => x.Genres).Include(x => x.Type).ToListAsync(); 
+            return await query.Include(x => x.Genres).Include(x => x.Type).ToListAsync();
         }
-
-        // POST api/<GenresAPIController>
-        [HttpPost]
+        /// <summary>
+        /// Test field for post method
+        /// </summary>
+        /// <param name="value"></param>
+        [HttpPost]       
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<GenresAPIController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<GenresAPIController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
