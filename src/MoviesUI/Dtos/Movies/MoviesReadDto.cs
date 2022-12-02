@@ -1,6 +1,6 @@
 ﻿using MoviesCore;
 
-namespace MoviesUI.Dtos
+namespace MoviesUI.Dtos.Movies
 {
     public class MoviesReadDto
     {
