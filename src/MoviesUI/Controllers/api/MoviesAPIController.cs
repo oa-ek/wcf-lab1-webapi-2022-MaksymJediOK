@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MoviesCore;
 using MoviesUI.Dtos;
+using MoviesUI.Dtos.Movies;
 using Type = MoviesCore.Type;
 
 namespace MoviesUI.Controllers.api
@@ -79,6 +80,69 @@ namespace MoviesUI.Controllers.api
             var mapper = new Mapper(config);
             var movies = mapper.Map<List<MoviesReadDto>>(await dbContext.Movies.Include(x => x.Country).Include(x => x.Type).ToListAsync());
             return movies;
+        }
+        /// <summary>
+        /// Creating new movie, including many to many relations
+        /// </summary>
+        /// <param name="movie"></param>
+        [HttpPost]
+        public async Task<ActionResult<MovieCreateDto>> CreateMovie(MovieCreateDto movie)
+        {
+            //TODO Add other movie properties
+            var newMovie = new Movie
+            {
+                Title = movie.Title,
+                Description = movie.Description,
+                Seasons = movie.Seasons,
+                PosterPath = movie.PosterPath,
+                Rating = movie.Rating,
+                ReleaseYear = movie.ReleaseYear,
+                Duration = movie.Duration,
+            };
+            if (movie.Genres != null)
+            {
+                newMovie.Genres = new List<Genre>();
+                foreach (var g in dbContext.Genres.Where(ge => movie.Genres.Contains(ge.Id)))
+                {
+                    newMovie.Genres.Add(g);
+                }
+            }
+            if (movie.CountryId != 0) newMovie.Country = dbContext.PublisherCountries.FirstOrDefault(x => x.Id == movie.CountryId);
+
+            dbContext.Movies?.Add(newMovie);
+            dbContext.SaveChanges();
+            return Ok(movie);
+        }
+
+        /// <summary>
+        /// Edit movie, previously geting it by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="movie"></param>
+        [HttpPut("{id}")]
+        public ActionResult<MovieCreateDto> Edit(int id,MovieCreateDto movie)
+        {
+            var edited = dbContext.Movies?.FirstOrDefault(x => x.Id == id);
+            if (edited == null) return Ok("Not found");
+            edited.Title = movie.Title;
+            edited.Description = movie.Description;
+            edited.Rating = movie.Rating;
+            edited.PosterPath = movie.PosterPath;
+            edited.Duration = movie.Duration;
+            edited.ReleaseYear = movie.ReleaseYear;
+            edited.Genres.Clear(); //issues 
+            edited.Genres = new List<Genre>();
+            if (movie.Genres != null)
+            {
+                foreach (var g in dbContext.Genres.Where(ge => movie.Genres.Contains(ge.Id)))
+                {
+                    edited.Genres.Add(g);
+                }
+            }
+            if (movie.CountryId != 0) edited.Country = dbContext.PublisherCountries.FirstOrDefault(x => x.Id == movie.CountryId);
+            dbContext.Entry(edited).State = EntityState.Modified;
+            dbContext.SaveChanges();
+            return Ok("Successfully edited");
         }
         /// <summary>
         /// Delete movie by id param

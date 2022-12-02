@@ -44,14 +44,7 @@ namespace MoviesUI.Controllers.api
                         select x;
             return await query.Include(x => x.Genres).Include(x => x.Type).ToListAsync();
         }
-        /// <summary>
-        /// Test field for post method
-        /// </summary>
-        /// <param name="value"></param>
-        [HttpPost]       
-        public void Post([FromBody] string value)
-        {
-        }
+
 
     }
 }
