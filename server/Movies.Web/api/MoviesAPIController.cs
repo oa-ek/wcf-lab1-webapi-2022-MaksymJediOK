@@ -130,7 +130,7 @@ namespace MoviesUI.Controllers.api
             edited.PosterPath = movie.PosterPath;
             edited.Duration = movie.Duration;
             edited.ReleaseYear = movie.ReleaseYear;
-            edited.Genres.Clear(); //issues 
+            edited.Genres?.Clear(); //issues 
             edited.Genres = new List<Genre>();
             if (movie.Genres != null)
             {
@@ -139,7 +139,7 @@ namespace MoviesUI.Controllers.api
                     edited.Genres.Add(g);
                 }
             }
-            if (movie.CountryId != 0) edited.Country = dbContext.PublisherCountries.FirstOrDefault(x => x.Id == movie.CountryId);
+            if (movie.CountryId != 0) edited.Country = dbContext.PublisherCountries?.FirstOrDefault(x => x.Id == movie.CountryId);
             dbContext.Entry(edited).State = EntityState.Modified;
             dbContext.SaveChanges();
             return Ok("Successfully edited");

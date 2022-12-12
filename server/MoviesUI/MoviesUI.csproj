@@ -30,9 +30,4 @@
 		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.4.0" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\MoviesDb\MoviesCore.csproj" />
-		<ProjectReference Include="..\MoviesRepository\MoviesRepository.csproj" />
-	</ItemGroup>
-
 </Project>
