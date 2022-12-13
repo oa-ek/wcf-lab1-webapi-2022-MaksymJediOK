@@ -1,25 +1,29 @@
-import {useEffect, useState} from "react";
-
+import './normalize.css'
+import { useEffect, useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import { Home } from './pages/Home'
+import { Layout } from './components/Layout/Layout'
 
 function App() {
-    const url = 'https://localhost:7225/api/Genre'
-    const [genres, setGenres] = useState([])
+  const url = 'https://localhost:7225/api/Genre'
 
-    useEffect(() => {
-      fetch(url)
-          .then(response => response.json())
-          .then(data => {
-            setGenres(data)
-            console.log(data)
-          })
-          .catch((error) => {
-            console.log(error)
-          })
-    }, [])
+  // useEffect(() => {
+  //   fetch(url)
+  //       .then(response => response.json())
+  //       .then(data => {
+  //         setGenres(data)
+  //         console.log(data)
+  //       })
+  //       .catch((error) => {
+  //         console.log(error)
+  //       })
+  // }, [])
   return (
-    <div className='App'>
-        some content
-    </div>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<Home />} />
+      </Route>
+    </Routes>
   )
 }
 
