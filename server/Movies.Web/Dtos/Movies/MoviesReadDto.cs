@@ -1,4 +1,4 @@
-﻿using MoviesCore;
+﻿
 
 namespace MoviesUI.Dtos.Movies
 {
@@ -13,6 +13,5 @@ namespace MoviesUI.Dtos.Movies
         public int ReleaseYear { get; set; }
         public int Duration { get; set; }
         public CountryDto? Country { get; set; }
-        public TypeDto? Type { get; set; }
     }
 }

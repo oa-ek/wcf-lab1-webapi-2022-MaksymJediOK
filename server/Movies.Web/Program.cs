@@ -1,15 +1,28 @@
+using Microsoft.EntityFrameworkCore;
+using Movies.Infrastructure;
+using Movies.Infrastructure.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CORSPolicy", builder =>
+    {
+        builder
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .WithOrigins("http://localhost:3000", "https://appname.azurestaticapps.net");
+    });
+});
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddScoped<GenreRepository>();
+var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -17,6 +30,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("CORSPolicy");
 
 app.UseAuthorization();
 
