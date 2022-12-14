@@ -1,7 +1,8 @@
 import React from 'react'
 
 import styled from 'styled-components'
-import { Link, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import { Header } from './componets/Header/Header'
 
 export const HeaderWrapper = styled.div`
   display: flex;
@@ -13,11 +14,7 @@ export const HeaderWrapper = styled.div`
 export const Layout = () => {
   return (
     <>
-      <HeaderWrapper>
-        <Link to={'/'}>Home</Link>
-        <Link to={'/'}>Films</Link>
-        <Link to={'/'}>Rocky</Link>
-      </HeaderWrapper>
+      <Header />
       <Outlet />
     </>
   )

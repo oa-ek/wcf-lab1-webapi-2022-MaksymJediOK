@@ -1,9 +1,12 @@
-import React from 'react';
+import React from 'react'
+import { Hero } from '../components/Hero/Hero'
+import { MovieList } from '../components/MovieList/MovieList'
 
 export const Home = () => {
-    return (
-        <div>
- contrent
-        </div>
-    );
-};
+  return (
+    <>
+      <Hero />
+      <MovieList />
+    </>
+  )
+}
