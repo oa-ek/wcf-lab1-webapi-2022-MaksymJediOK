@@ -1,5 +1,12 @@
 import React from 'react'
-import {Container, HeroBG, HeroButton, HeroDesc, HeroText, HeroTitle} from './Hero.styles'
+import {
+  Container,
+  HeroBG,
+  HeroButton,
+  HeroDesc,
+  HeroText,
+  HeroTitle,
+} from './Hero.styles'
 
 export const Hero = () => {
   return (

@@ -5,7 +5,6 @@ import { Home } from './pages/Home'
 import { Layout } from './components/Layout/Layout'
 
 function App() {
-  const url = 'https://localhost:7225/api/Genre'
 
   // useEffect(() => {
   //   fetch(url)

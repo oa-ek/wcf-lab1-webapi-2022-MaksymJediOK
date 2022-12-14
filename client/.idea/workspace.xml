@@ -5,16 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="616e0dbf-27e9-4952-ba47-e898e6dfdc28" name="Changes" comment="front">
-      <change afterPath="$PROJECT_DIR$/src/components/Hero/Hero.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Hero/Hero.styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/MovieList/MovieList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/MovieList/MovieList.styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MovieList/components/Card/Card.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MovieList/components/Card/Card.styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/reducers/movies.slice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/componets/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/componets/Header/Header.styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout/Layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/Layout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Hero/Hero.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hero/Hero.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Hero/Hero.styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hero/Hero.styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MovieList/MovieList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MovieList/MovieList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MovieList/MovieList.styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MovieList/MovieList.styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +88,9 @@
       <workItem from="1670928576905" duration="2442000" />
       <workItem from="1670950801938" duration="5004000" />
       <workItem from="1670996073588" duration="5000" />
-      <workItem from="1670998744160" duration="8009000" />
+      <workItem from="1670998744160" duration="8108000" />
+      <workItem from="1671009053799" duration="7210000" />
+      <workItem from="1671020248628" duration="3674000" />
     </task>
     <task id="LOCAL-00001" summary="front">
       <created>1670839749441</created>

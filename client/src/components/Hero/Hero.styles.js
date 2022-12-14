@@ -5,7 +5,6 @@ export const HeroBG = styled.div`
     url('https://images7.alphacoders.com/124/1241136.png');
   background-size: cover;
   height: 500px;
-  width: 1920px;
 `
 
 export const Container = styled.div`
