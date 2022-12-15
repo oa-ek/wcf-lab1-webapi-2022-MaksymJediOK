@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
- namespace Movies.Domain.Entities
+namespace Movies.Domain.Entities
 
 {
     public class PublisherCountry
@@ -11,7 +12,7 @@ using System.ComponentModel.DataAnnotations.Schema;
         public int Id { get; set; }
 
         public string? CountryName { get; set; }
-
+        [JsonIgnore]
         public  virtual ICollection<Movie>? Movies { get; set; } = new List<Movie>();
 
         public override string ToString()

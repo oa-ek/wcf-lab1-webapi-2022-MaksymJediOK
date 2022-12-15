@@ -1,0 +1,12 @@
+input {
+    width: 100%;
+    text-decoration: none;
+}
+.btn-submit {
+    width: 40%;
+    margin-top: 30px;
+    background: #ce1e6c;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 15px 0;
+}

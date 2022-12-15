@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Movies.Domain.Entities;
 using Movies.Infrastructure;
+using MoviesUI.Dtos.Movies;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -23,10 +24,10 @@ namespace Movies.Web.Controllers
         [HttpGet]
         public List<Movie> Get()
         {
-            var movies = dbContext.Movies
+            var movies = dbContext.Movies?
                 .OrderBy(g => g.Id);
 
-            return movies.Include(x => x.Genres).ToList();
+            return movies.Include(x => x.Country).ToList();
         }
         /// <summary>
         /// Get movie by id, including all related tables
@@ -81,34 +82,34 @@ namespace Movies.Web.Controllers
         /// Creating new movie, including many to many relations
         /// </summary>
         /// <param name="movie"></param>
-        //[HttpPost]
-        //public async Task<ActionResult<MovieCreateDto>> CreateMovie(MovieCreateDto movie)
-        //{
-        //    //TODO Add other movie properties
-        //    var newMovie = new Movie
-        //    {
-        //        Title = movie.Title,
-        //        Description = movie.Description,
-        //        Seasons = movie.Seasons,
-        //        PosterPath = movie.PosterPath,
-        //        Rating = movie.Rating,
-        //        ReleaseYear = movie.ReleaseYear,
-        //        Duration = movie.Duration,
-        //    };
-        //    if (movie.Genres != null)
-        //    {
-        //        newMovie.Genres = new List<Genre>();
-        //        foreach (var g in dbContext.Genres.Where(ge => movie.Genres.Contains(ge.Id)))
-        //        {
-        //            newMovie.Genres.Add(g);
-        //        }
-        //    }
-        //    if (movie.CountryId != 0) newMovie.Country = dbContext.PublisherCountries.FirstOrDefault(x => x.Id == movie.CountryId);
+        [HttpPost]
+        public async Task<ActionResult<MovieCreateDto>> CreateMovie(MovieCreateDto movie)
+        {
+            //TODO Add other movie properties
+            var newMovie = new Movie
+            {
+                Title = movie.Title,
+                Description = movie.Description,
 
-        //    dbContext.Movies?.Add(newMovie);
-        //    dbContext.SaveChanges();
-        //    return Ok(movie);
-        //}
+                PosterPath = movie.PosterPath,
+                Rating = movie.Rating, 
+                ReleaseYear = movie.ReleaseYear,
+
+            };
+            if (movie.Genres != null)
+            {
+                newMovie.Genres = new List<Genre>();
+                foreach (var g in dbContext.Genres.Where(ge => movie.Genres.Contains(ge.Id)))
+                {
+                    newMovie.Genres.Add(g);
+                }
+            }
+            if (movie.CountryId != 0) newMovie.Country = dbContext.Countries.FirstOrDefault(x => x.Id == movie.CountryId);
+
+            dbContext.Movies?.Add(newMovie);
+            dbContext.SaveChanges();
+            return Ok(movie);
+        }
 
         /// <summary>
         /// Edit movie, previously geting it by id

@@ -5,7 +5,8 @@ import {
   HeaderWrapper,
   StyledLogo,
 } from './Header.styles'
-import {FaBars, FaPlus} from 'react-icons/fa'
+import { FaBars, FaPlus } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 export const Header = () => {
   return (
@@ -13,9 +14,12 @@ export const Header = () => {
       <Container>
         <HeaderLeft>
           <FaBars color={'#fff'} />
-          <StyledLogo href='#'>Cinema</StyledLogo>
+          <StyledLogo href='#'>
+            <Link to='/'>Cinema</Link>
+          </StyledLogo>
         </HeaderLeft>
-        <FaPlus color={'#fff'} />
+        {/*<FaPlus color={'#fff'} />*/}
+        <Link to={'/Create'} > Go to</Link>
       </Container>
     </HeaderWrapper>
   )

@@ -21,7 +21,7 @@ export const HeaderLeft = styled.div`
   color: #fff;
 `
 
-export const StyledLogo = styled.a`
+export const StyledLogo = styled.p`
     padding: 0 15px;
   text-decoration: none;
   color: #fff;

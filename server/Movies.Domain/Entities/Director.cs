@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Movies.Domain.Entities
 {
@@ -11,6 +12,7 @@ namespace Movies.Domain.Entities
         public string? FirstName { get; set; }
 
         public string? LastName { get; set; }
+        [JsonIgnore]
 
         public virtual ICollection<Movie>? Movies { get; set; } = new List<Movie>();
 
