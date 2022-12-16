@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { MoviesAPI } from '../../config'
-import { Container, WrapperInput } from './CreateInput.styles'
+import { Container, SelectWrapper, WrapperInput } from './CreateInput.styles'
 import './Input.css'
+import Select from 'react-select'
+import { useDispatch, useSelector } from 'react-redux'
+import { setGenrePack } from '../../store/reducers/genre.slice'
 
 export const CreateInput = () => {
+  const dispatch = useDispatch()
+  const genrePack = useSelector((state) => state.genre)
   const {
     register,
     formState: { errors },
@@ -35,11 +40,27 @@ export const CreateInput = () => {
 
   const onSubmit = (data) => {
     console.log(data)
-    const genres = [1, 2]
+    const genres = genrePack
     const dataToPass = { ...data, genres }
     console.log(dataToPass)
     SendRequest(dataToPass)
     reset()
+  }
+
+  const options = [
+    { value: 1, label: 'Drama' },
+    { value: 2, label: 'Action' },
+    { value: 3, label: 'Adventure' },
+    { value: 4, label: 'Comedy' },
+    { value: 5, label: 'Detective' },
+  ]
+
+  const handleSelectChange = (options) => {
+    let basicGenre = []
+    options.forEach((obj) => {
+      basicGenre.push(obj.value)
+    })
+    dispatch(setGenrePack(basicGenre))
   }
 
   return (
@@ -113,18 +134,6 @@ export const CreateInput = () => {
         </WrapperInput>
         <WrapperInput>
           <label>
-            duration
-            <input
-              type='number'
-              {...register('duration', {
-                required: 'This field is required',
-              })}
-            />
-          </label>
-          <div>{errors?.duration && <p>{errors?.duration?.message}</p>}</div>
-        </WrapperInput>
-        <WrapperInput>
-          <label>
             country
             <input
               type='number'
@@ -142,6 +151,10 @@ export const CreateInput = () => {
 
         <input className='btn-submit' type={'submit'} />
       </form>
+
+      <SelectWrapper>
+        <Select options={options} onChange={handleSelectChange} isMulti />
+      </SelectWrapper>
     </Container>
   )
 }

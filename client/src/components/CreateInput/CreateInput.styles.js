@@ -9,3 +9,7 @@ export const WrapperInput =  styled.div`
   border: 1px solid #30b6a2;
   margin: 20px 0;
 `
+
+export const SelectWrapper = styled.div`
+    margin-top: 20px;
+`

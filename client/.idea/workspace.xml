@@ -5,23 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="616e0dbf-27e9-4952-ba47-e898e6dfdc28" name="Changes" comment="front">
-      <change afterPath="$PROJECT_DIR$/src/components/CreateInput/CreateInput.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CreateInput/CreateInput.styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CreateInput/Input.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/CreatePage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CommonList/CommonList.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CommonList/CommonList.styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CommonList/FilterCard.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/FilterPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/reducers/filter.slice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/reducers/genre.slice.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout/componets/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/componets/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout/componets/Header/Header.styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/componets/Header/Header.styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CreateInput/CreateInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateInput/CreateInput.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CreateInput/CreateInput.styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateInput/CreateInput.styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MovieList/MovieList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MovieList/MovieList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MovieList/MovieList.styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MovieList/MovieList.styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MovieList/components/Card/Card.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MovieList/components/Card/Card.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/Movies.Domain/Entities/Director.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../server/Movies.Domain/Entities/Director.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/Movies.Domain/Entities/PublisherCountry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../server/Movies.Domain/Entities/PublisherCountry.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/movies.slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/movies.slice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/Movies.Web/Controllers/MovieController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../server/Movies.Web/Controllers/MovieController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/Movies.Web/Dtos/Movies/MovieCreateDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../server/Movies.Web/Dtos/Movies/MovieCreateDto.cs" afterDir="false" />
     </list>
@@ -36,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -68,6 +67,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\comp\\Documents\\GitHub\\wcf-lab1-webapi-2022-MaksymJediOK\\client\\node_modules\\prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2020.3.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -99,6 +99,13 @@
       <workItem from="1671038234002" duration="3606000" />
       <workItem from="1671093693503" duration="9144000" />
       <workItem from="1671109955020" duration="7224000" />
+      <workItem from="1671121197548" duration="600000" />
+      <workItem from="1671129632475" duration="4591000" />
+      <workItem from="1671166363217" duration="8189000" />
+      <workItem from="1671184177363" duration="363000" />
+      <workItem from="1671199495520" duration="3902000" />
+      <workItem from="1671207399086" duration="1815000" />
+      <workItem from="1671214111913" duration="12108000" />
     </task>
     <task id="LOCAL-00001" summary="front">
       <created>1670839749441</created>

@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { MoviesAPI } from '../../config'
 
 export const loadMovieData = createAsyncThunk(
   '@@Movies/loading',
   async (_, { extra: { client, api } }) => {
-    return client.get(api.getAllGenres)
+    return client.get(MoviesAPI)
   }
 )
 

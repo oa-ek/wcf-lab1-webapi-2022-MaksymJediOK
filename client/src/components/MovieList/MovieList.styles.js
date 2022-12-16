@@ -18,7 +18,7 @@ export const MoviesTitle = styled.h3`
   font-weight: 500;
 `
 
-export const MoviesButton = styled.a`
+export const MoviesButton = styled.div`
   margin-top: 40px;
   padding: 15px;
   background-color: #2f62c0;

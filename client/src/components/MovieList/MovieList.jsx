@@ -1,32 +1,34 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import {
   Container,
   MoviesButton,
   MoviesTitle,
   MoviesTop,
 } from './MovieList.styles'
-import axios from 'axios'
 import { Card } from './components/Card/Card'
+import { useDispatch, useSelector } from 'react-redux'
+import { loadMovieData } from '../../store/reducers/movies.slice'
+import { Link } from 'react-router-dom'
 
 export const MovieList = () => {
-  const [movies, setMovies] = useState([])
-
+  const dispatch = useDispatch()
+  const movieList = useSelector((state) => state.movie.list)
   useEffect(() => {
-    axios.get('https://localhost:7225/api/Movie').then((response) => {
-      setMovies(response.data)
-      console.log(response.data)
-    })
-  }, [])
+    dispatch(loadMovieData())
+  }, [dispatch])
+  console.log(movieList)
   return (
     <>
       <Container>
         <MoviesTop>
           <MoviesTitle>New Movies</MoviesTitle>
-          <MoviesButton>Watch all</MoviesButton>
+          <MoviesButton>
+            <Link to='/Filter'>Watch All</Link>
+          </MoviesButton>
         </MoviesTop>
         <div className='row g-3'>
-          {movies &&
-            movies.map((mov) => {
+          {movieList &&
+            movieList.map((mov) => {
               return <Card key={mov.title} {...mov} />
             })}
         </div>
